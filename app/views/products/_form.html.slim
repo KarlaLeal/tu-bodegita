@@ -5,6 +5,7 @@
       ul
         - product.errors.full_messages.each do |message|
           li = message
+          li = product.errors.messages
 
 
   .mb-3.row
