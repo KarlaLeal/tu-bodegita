@@ -1,28 +1,15 @@
 p id="notice" = notice
 
-h1 Listing products
+h1 Productos
 
-/ table.table
-/   thead
-/     tr
-/       th Name
-/       th Description
-/       th Stock
-/       th
-/       th
-/       th
-
-/   tbody
-/     - @products.each do |product|
-/       = content_tag :tr, id: dom_id(product)
-/         tr
-/           td = product.name
-/           td = product.description
 = turbo_stream_from 'products'
 
-= turbo_frame_tag 'product_form' do
-  = render 'products/form', product: @product
+.card.p-3.mb-5.rounded.shadow.bg-body
+  .card-body
+    = turbo_frame_tag 'product_form' do
+      = render 'products/form', product: @product
 
 = turbo_frame_tag 'products' do
+  h2 Listado
   = render @products
 

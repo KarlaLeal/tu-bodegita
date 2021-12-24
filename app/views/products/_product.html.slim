@@ -1,14 +1,18 @@
 = turbo_frame_tag dom_id(product) do
 
   .card.card-body
-    = product.name
-    = product.stock
-    = product.description
-
-    mt-2
-      / = button_to "Likes (#{product.likes_count})", product_like_path(product), method: :post
-      / = button_to "Reproducts (#{product.reproducts_count})", product_reproduct_path(product), method: :post
-
-      = link_to "Edit", edit_product_path(product), class: 'btn btn-primary mx-1', data: { 'turbo-frame': 'edit_product' }
-      = turbo_frame_tag :edit_product
-      = link_to "Destroy", product, data: { confirm: 'Are you sure?', turbo_method: 'delete' }, class: 'btn btn-secondary mx-1'
+    .row
+      .col-8
+        .row
+          .col
+            .fs-1 = product.name
+          .col
+            span.align-middle = "#{product.stock} productos disponibles"
+        .row
+          .col
+            p = product.description
+      .col-4.d-grid.gap-2.d-md-flex.justify-content-md-end
+        mt-2
+          = link_to "Editar", edit_product_path(product), class: 'btn btn-warning mx-1', data: { 'turbo-frame': 'edit_product' }
+          = turbo_frame_tag :edit_product
+          = link_to "Borrar", product, data: { confirm: 'Are you sure?', turbo_method: 'delete' }, class: 'btn btn-outline-secondary mx-1'
