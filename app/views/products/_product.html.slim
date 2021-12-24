@@ -7,10 +7,13 @@
           .col
             .fs-1 = product.name
           .col
-          - if product.stock == 1
-            span.align-middle = "#{product.stock} producto disponible"
-          - else
-            span.align-middle = "#{product.stock} productos disponibles"
+            - color = 'text-danger' if product.stock.between?(-9999999999, 3)
+            - color = 'text-warning' if product.stock.between?(3, 10)
+            - color = 'text-success' if product.stock > 10
+            - if product.stock == 1
+              span.align-middle[class=color] = "#{product.stock} producto disponible"
+            - else
+              span.align-middle[class=color] = "#{product.stock} productos disponibles"
         .row
           .col
             p = product.description
