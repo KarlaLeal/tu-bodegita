@@ -1,7 +1,8 @@
-h1 Editing product
-
-== render 'form', product: @product
-
-=> link_to 'Show', @product
-'|
-=< link_to 'Back', products_path
+= turbo_frame_tag :edit_product do
+  .card
+    .card-body
+      h1.card-title Edit Product
+    .card-body
+      == render 'form', product: @product
+    .card-footer
+      = link_to 'Back', products_path
