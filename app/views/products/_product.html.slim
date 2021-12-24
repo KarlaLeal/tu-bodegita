@@ -1,0 +1,13 @@
+= turbo_frame_tag dom_id(product) do
+
+  .card.card-body
+    = product.name
+    = product.stock
+    = product.description
+
+    mt-2
+      / = button_to "Likes (#{product.likes_count})", product_like_path(product), method: :post
+      / = button_to "Reproducts (#{product.reproducts_count})", product_reproduct_path(product), method: :post
+
+      = link_to "Edit", edit_product_path(product), class: 'btn btn-primary mx-1', data: { turbo: false }
+      = link_to "Destroy", product, data: { confirm: 'Are you sure?', turbo_method: 'delete' }, class: 'btn btn-secondary mx-1'

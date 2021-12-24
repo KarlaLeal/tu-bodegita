@@ -1,0 +1,28 @@
+p id="notice" = notice
+
+h1 Listing products
+
+/ table.table
+/   thead
+/     tr
+/       th Name
+/       th Description
+/       th Stock
+/       th
+/       th
+/       th
+
+/   tbody
+/     - @products.each do |product|
+/       = content_tag :tr, id: dom_id(product)
+/         tr
+/           td = product.name
+/           td = product.description
+= turbo_stream_from 'products'
+
+= turbo_frame_tag 'product_form' do
+  = render 'products/form', product: @product
+
+= turbo_frame_tag 'products' do
+  = render @products
+
