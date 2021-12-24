@@ -8,17 +8,18 @@
 
 
   .mb-3.row
-    = f.label 'Nombre', class: 'col-sm-2 col-form-label'
+    = f.label 'Nombre', class: 'col-sm-4 col-form-label'
     .col-sm-8
       = f.text_field :name, class: 'form-control'
   .mb-3.row
-    = f.label 'Descripción', class: 'col-sm-2 col-form-label'
+    = f.label 'Descripción', class: 'col-sm-4 col-form-label'
     .col-sm-8
       = f.text_field :description, class: 'form-control'
   .mb-3.row
-    = f.label 'Cantidad', class: 'col-sm-2 col-form-label'
+    = f.label 'Cantidad', class: 'col-sm-4 col-form-label'
     .col-sm-8
       = f.number_field :stock, class: 'form-control'
   .mb-3.row
     .actions 
       = f.submit 'Enviar', class: 'btn btn-primary'
+      = link_to 'Cancelar', products_path, class: 'btn btn-outline-secondary mx-1'

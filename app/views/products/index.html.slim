@@ -9,7 +9,7 @@ h1 Productos
     = turbo_frame_tag 'product_form' do
       = render 'products/form', product: @product
 
+h2 Listado
 = turbo_frame_tag 'products' do
-  h2 Listado
   = render @products
 
